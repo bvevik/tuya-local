@@ -25,15 +25,46 @@ entities:
         mapping:
           - dps_val: manual
             value: normal
-          - dps_val: Clothdrying
+          - dps_val: auto
+            value: auto
+          - dps_val: laundrydrying
             value: laundry
-          - dps_val: SLeeping
+          - dps_val: sleeping
             value: sleep
           - dps_val: purifying
             value: purify
       - id: 6
         name: current_humidity
         type: integer
+  - entity: fan
+    dps:
+      - id: 1
+        type: boolean
+        name: switch
+      - id: 4
+        type: string
+        name: speed
+        mapping:
+          - dps_val: low
+            value: 50
+          - dps_val: high
+            value: 100
+  - entity: sensor
+    class: temperature
+    dps:
+      - id: 7
+        type: integer
+        name: sensor
+        unit: C
+        class: measurement
+  - entity: sensor
+    class: humidity
+    dps:
+      - id: 6
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
   - entity: binary_sensor
     translation_key: tank_full
     category: diagnostic
